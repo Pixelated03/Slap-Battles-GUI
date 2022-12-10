@@ -1,0 +1,15 @@
+local a=game.Players.LocalPlayer
+local b=a.Character or a.CharacterAdded:Wait()
+local C={}
+C[#C]=workspace.DescendantAdded:Connect(function(v)
+    if tostring(v)=='Glove'and v.Parent.Parent==game.Players.LocalPlayer.Character then
+        C[#C]=v.Touched:Connect(function(obj)
+            firesignal(v.Parent.Activated)
+        end)
+    end
+end)
+getgenv().AutoHit=function()
+    for _,v in pairs(C)do
+        v:Disconnect()
+    end
+end
