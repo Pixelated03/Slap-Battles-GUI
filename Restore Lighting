@@ -1,0 +1,11 @@
+getgenv().SBRestoreLighting=function()
+    for _,v in pairs(game.Lighting:GetChildren())do
+        if (v.ClassName~='Bloom'or v.ClassName~='DepthOfField')and tostring(v)~='Sky'then
+            v:Destroy()
+        end
+    end
+    local a=game.ReplicatedStorage:FindFirstChild'Sky'
+    if a then
+        a.Parent=game.Lighting
+    end
+end
