@@ -1,5 +1,5 @@
 local C=game['Run Service'].RenderStepped:Connect(function()
-    getgenv().SBRestoreLighting()
+    SBRestoreLighting()
 end)
 getgenv().D1=function()
     C:Disconnect()
