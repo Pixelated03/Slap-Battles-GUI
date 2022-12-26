@@ -1,3 +1,4 @@
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Pixelated03/Slap-Battles-GUI/main/Restore%20Lighting'))()
 local C=game['Run Service'].RenderStepped:Connect(function()
     SBRestoreLighting()
 end)
