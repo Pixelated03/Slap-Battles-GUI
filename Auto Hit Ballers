@@ -1,0 +1,9 @@
+getgenv().AutoHitBallers=true
+while AutoHitBallers and task.wait(1)do
+	for _,v in pairs(workspace:GetChildren())do
+		local h=v:FindFirstChild'Head'
+		if v:FindFirstChild'baller'and h then
+			game.ReplicatedStorage.GeneralHit:FireServer(h)
+		end
+	end
+end
