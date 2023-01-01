@@ -1,0 +1,9 @@
+game['Run Service']:BindToRenderStep('CollectGifts',10,function()
+	for _,v in pairs(workspace:GetChildren())do
+		local c=game.Players.LocalPlayer.Character
+		if c and(c.PrimaryPart)and tostring(v)=='Gift'then
+			v.CanCollide=false
+			v.CFrame=c.PrimaryPart.CFrame
+		end
+	end
+end)
