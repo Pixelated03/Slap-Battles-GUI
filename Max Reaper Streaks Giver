@@ -1,0 +1,7 @@
+game.Players.LocalPlayer.CharacterAdded:Connect(function(v)
+	repeat task.wait()until v:FindFirstChild'Humanoid'and(v.Humanoid.PlatformStand)
+	task.wait(.5)
+	for i=1,18 do
+		game.ReplicatedStorage.HumanoidDied:FireServer(v,false)
+	end
+end)
