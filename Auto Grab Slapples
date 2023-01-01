@@ -1,0 +1,9 @@
+local a=workspace.Arena.island5.Slapples:GetChildren()
+game['Run Service']:BindToRenderStep('CollectSlapples',10,function()
+	for _,v in pairs(a)do
+		local c=game.Players.LocalPlayer.Character
+		if c and(c.PrimaryPart)then
+			v.Glove.Position=c.PrimaryPart.Position
+		end
+	end
+end)
