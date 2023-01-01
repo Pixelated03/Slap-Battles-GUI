@@ -1,9 +1,42 @@
-local a=workspace.Arena.island5.Slapples:GetChildren()
+local Slapples,C={},{}
+for _,v in pairs(workspace.Arena.island5.Slapples:GetChildren())do
+	Slapples[v]=v.Glove.Position
+	v.Glove.Transparency=1
+	C[#C]=v.Glove:GetPropertyChangedSignal'Transparency':Connect(function()
+		v.Glove.Transparency=1
+	end)
+	v.Glove.PointLight.Enabled=false
+	C[#C]=v.Glove.PointLight:GetPropertyChangedSignal'Enabled':Connect(function()
+		v.Glove.PointLight.Enabled=1
+	end)
+	for _,v in pairs(v.Glove:GetChildren())do
+		if v.ClassName=='Texture'then
+			v.Transparency=1
+			C[#C]=v:GetPropertyChangedSignal'Transparency':Connect(function()
+				v.Transparency=1
+			end)
+		end
+	end
+	v.HandleLight.Transparency=1
+	C[#C]=v.HandleLight:GetPropertyChangedSignal'Transparency':Connect(function()
+		v.HandleLight.Transparency=1
+	end)
+end
 game['Run Service']:BindToRenderStep('CollectSlapples',10,function()
-	for _,v in pairs(a)do
+	for v,_ in pairs(Slapples)do
 		local c=game.Players.LocalPlayer.Character
 		if c and(c.PrimaryPart)then
 			v.Glove.Position=c.PrimaryPart.Position
 		end
 	end
 end)
+getgenv().CollectSlapples=function()
+	game['Run Service']:UnbindFromRenderStep('CollectSlapples')
+	for _,v in pairs(C)do
+		v:Disconnect()
+	end
+	for i,v in pairs(Slapples)do
+		i.Position=v
+	end
+	table.clear(getgenv().Slapples)
+end
