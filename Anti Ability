@@ -1,0 +1,38 @@
+local C=workspace.DescendantAdded:Connect(function(v)
+	local a=tostring(v)
+	if (a=='Glove'and tostring(v.Parent)=='HingePart')or a=='Shockwave'or(v.ClassName=='Part'and(v.Size==Vector3.new(20,30,150)))or(tostring(v)=='Union'and v.Parent==workspace)then
+		v.CanTouch=false
+	elseif a=='Sphere'then
+		v.Transparency=.95
+		v.CanCollide=false
+	elseif string.find(a,'\195\133')then
+		task.wait()
+		v:Destroy()
+	elseif a=='rock'or a=='ClonedBall'then
+		v.CanTouch=false
+		v.Transparency=.95
+		v.CanCollide=false
+	elseif a=='DeathMark'then
+		game.ReplicatedStorage.ReaperGone:FireServer(v)
+	end
+end)
+game['Run Service']:BindToRenderStep('AntiHabilitys',10,function()
+	for _,v in pairs(workspace:GetChildren())do
+		if tostring(v)=='wall'or(v.ClassName=='Part'and(v.Color==Color3.fromRGB(172,73,73)))then
+			v.CanCollide=false
+			v.Transparency=.95
+		end
+	end
+	local s=game.Players.LocalPlayer.PlayerGui:FindFirstChild'SquidInk'
+	if s then
+		s.Enabled=false
+	end
+	local c=game.Players.LocalPlayer.Character
+	if c and(c:FindFirstChild'Humanoid')and(c.Humanoid.WalkSpeed<20)then
+		c.Humanoid.WalkSpeed=20
+	end
+end)
+getgenv().AntiAbilitys=function()
+	C:Disconnect()
+	game['Run Service']:UnbindFromRenderStep'AntiHabilitys'
+end
