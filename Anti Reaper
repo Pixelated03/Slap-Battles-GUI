@@ -1,1 +1,0 @@
-C=workspace.DescendantAdded:Connect(function(a)if tostring(a)=='DeathMark'and a.Parent==game.Players.LocalPlayer.Character then game.ReplicatedStorage.ReaperGone:FireServer(a)end end)getgenv().AntiReaper=function()C:Disconnect()end
