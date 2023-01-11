@@ -1,8 +1,0 @@
-getgenv().AutoLego=true
-while AutoLego and wait(1.755)do
-	game.ReplicatedStorage.lbrick:FireServer()
-	pcall(function()
-		local a=game.Players.LocalPlayer.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel
-		a.Text=tostring(tonumber(a.Text)+1)
-	end)
-end
