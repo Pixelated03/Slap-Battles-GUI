@@ -1,5 +1,0 @@
-getgenv().SpawnBallers=function(e)
-	for i=1,e do
-		game.ReplicatedStorage.GeneralAbility:FireServer()
-	end
-end
