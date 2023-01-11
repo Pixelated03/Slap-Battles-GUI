@@ -1,1 +1,86 @@
-local b=loadstring(game:HttpGet"https://pastebin.com/raw/za26qWBJ")()local c=b:Window("discord library")local d=c:Server("Slap Battles GUI","")local e=d:Channel("Main")loadstring(game:HttpGet('https://raw.githubusercontent.com/Pixelated03/GetDescendants/main/Initializer'))()loadstring(game:HttpGet('https://raw.githubusercontent.com/Pixelated03/Slap-Battles-GUI/main/Restore%20Lighting'))()e:Toggle("Auto Hit",false,function(f)if f then loadstring(game:HttpGet('https://raw.githubusercontent.com/Pixelated03/Slap-Battles-GUI/main/AutoHit'))()else AutoHit()end end)e:Seperator()e:Toggle("Anti Reaper",false,function(f)if f then loadstring(game:HttpGet('https://raw.githubusercontent.com/Pixelated03/Slap-Battles-GUI/main/Anti%20Reaper'))()else AntiReaper()end end)e:Seperator()e:Slider("WalkSpeed",20,40,20,function(g)local h=a.Character;if h then local i=h:FindFirstChildOfClass("Humanoid")if i then i.WalkSpeed=g end end end)e:Seperator()e:Button("Retore Lighting",function()SBRestoreLighting()end)e:Seperator()e:Toggle("Auto Retore Lighting",false,function(f)if f then loadstring(game:HttpGet('https://raw.githubusercontent.com/Pixelated03/Slap-Battles-GUI/main/Auto%20Restore%20Lighting'))()else D1()end end)e:Seperator()e:Toggle("Name Hidder",false,function(f)if f then loadstring(game:HttpGet('https://raw.githubusercontent.com/Pixelated03/Name-Hidder/main/Initializer'))()else NameHidder()end end)e:Seperator()e:Button("Infinite Yield",function()loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()end)
+local DiscordLib=loadstring(game:HttpGet'https://pastebin.com/raw/za26qWBJ')()
+local win=DiscordLib:Window("discord library")
+local serv=win:Server("Slap Battles GUI", "")
+local btns=serv:Channel("Client")
+btns:Toggle('Auto Hit',false,function(e)
+    if e then
+        loadstring(game:HttpGet'https://raw.githubusercontent.com/Pixelated03/Slap-Battles-GUI/main/AutoHit')()
+    else
+        AutoHit()
+    end
+end)
+btns:Toggle('Auto Hit Ballers',false,function(e)
+    if e then
+        loadstring(game:HttpGet'https://raw.githubusercontent.com/Pixelated03/Slap-Battles-GUI/main/Auto%20Hit%20Ballers')()
+    else
+        getgenv().AutoHitBallers=false
+    end
+end)
+btns:Seperator()
+btns:Toggle('Auto Collect Slapples',false,function(e)
+    if e then
+        loadstring(game:HttpGet'https://raw.githubusercontent.com/Pixelated03/Slap-Battles-GUI/main/Auto%20Grab%20Slapples')()
+    else
+		CollectSlapples()
+    end
+end)
+btns:Toggle('Auto Collect Gifs',false,function(e)
+    if e then
+        loadstring(game:HttpGet'https://raw.githubusercontent.com/Pixelated03/Slap-Battles-GUI/main/Auto%20Grab%20Gifts')()
+    else
+		game['Run Service']:UnbindFromRenderStep'CollectGifts'
+    end
+end)
+btns:Seperator()
+btns:Toggle('Anti Ability',false,function(e)
+    if e then
+        loadstring(game:HttpGet'https://raw.githubusercontent.com/Pixelated03/Slap-Battles-GUI/main/Anti%20Ability')()
+    else
+        AntiReaper()
+    end
+end)
+btns:Seperator()
+btns:Slider('WalkSpeed',20,40,20,function(h)
+	local i=game.Players.LocalPlayer.Character
+	if i and(i:FindFirstChild'Humanoid')then
+		i.Humanoid.WalkSpeed=h
+	end
+end)
+btns:Seperator()
+loadstring(game:HttpGet'https://raw.githubusercontent.com/Pixelated03/Slap-Battles-GUI/main/Restore%20Lighting')()
+btns:Button('Retore Lighting',function()
+    SBRestoreLighting()
+end)
+btns:Toggle("Auto Retore Lighting", false, function(e)
+    if e then
+        loadstring(game:HttpGet'https://raw.githubusercontent.com/Pixelated03/Slap-Battles-GUI/main/Auto%20Restore%20Lighting'))()
+    else
+        D1()
+    end
+end)
+btns:Seperator()
+btns:Button('Write Elude Code',function()
+	 loadstring(game:HttpGet'https://raw.githubusercontent.com/Pixelated03/Slap-Battles-GUI/main/Write%20Elude%20Code')()
+end)
+btns:Seperator()
+btns:Button('Gold (God Mode)',function()
+	 loadstring(game:HttpGet'https://raw.githubusercontent.com/Pixelated03/Slap-Battles-GUI/main/Gold%20(God%20Mode)')()
+end)
+btns:Seperator()
+btns:Button('Headless',function()
+	 pcall(function()
+	 	game.Players.LocalPlayer.Character.Torso.Neck:Destroy()
+	 end)
+end)
+local btns1 = serv:Channel("Client")
+btns1:Toggle('Name Hidder',false,function(e)
+    if e then
+        loadstring(game:HttpGet'https://raw.githubusercontent.com/Pixelated03/Name-Hidder/main/Initializer')()
+    else
+        NameHidder()
+    end
+end)
+btns1:Seperator()
+btns1:Button('Infinite Yield',function()
+    loadstring(game:HttpGet'https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source')()
+end)
