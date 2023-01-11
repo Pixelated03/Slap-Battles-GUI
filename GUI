@@ -39,6 +39,13 @@ btns:Toggle('Anti Ability',false,function(e)
         AntiReaper()
     end
 end)
+btns:Toggle('Auto Ability',false,function(e)
+    if e then
+        loadstring(game:HttpGet'https://raw.githubusercontent.com/Pixelated03/Slap-Battles-GUI/main/Auto%20Ability')()
+    else
+        AntiReaper()
+    end
+end)
 btns:Seperator()
 btns:Slider('WalkSpeed',20,40,20,function(h)
 	local i=game.Players.LocalPlayer.Character
