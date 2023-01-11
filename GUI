@@ -53,7 +53,7 @@ btns:Button('Retore Lighting',function()
 end)
 btns:Toggle("Auto Retore Lighting", false, function(e)
     if e then
-        loadstring(game:HttpGet'https://raw.githubusercontent.com/Pixelated03/Slap-Battles-GUI/main/Auto%20Restore%20Lighting'))()
+        loadstring(game:HttpGet'https://raw.githubusercontent.com/Pixelated03/Slap-Battles-GUI/main/Auto%20Restore%20Lighting')()
     else
         D1()
     end
