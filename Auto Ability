@@ -1,0 +1,156 @@
+getgenv().AutoHability=true
+local a,d,ping,A2,r=game.Players.LocalPlayer,game.ReplicatedStorage,function()
+	local a=game:GetService("Stats").Network.ServerStatsItem["Data Ping"]
+	local b=a:GetValue()
+	repeat task.wait()until a:GetValue()~=b
+end,false,game['Run Service'].RenderStepped
+local l,A,g=a.leaderstats.Glove,true,{
+['Default']=function(c,h)
+	if h then
+		h.WalkSpeed=40
+	end
+	wait(.1)
+end,
+['Diamond']=function(c)
+	if not c:FindFirstChild'rock'then
+		d.Rockmode:FireServer()
+	end
+	wait(3)
+end,
+['ZZZZZZZ']=function(c)
+	if c:FindFirstChild'Ragdolled'and not(c.Ragdolled.Value)then
+		d.ZZZZZZZSleep:FireServer()
+	end
+	wait(.1)
+end,
+['Brick']=function()
+	ping()
+	d.lbrick:FireServer()
+	pcall(function()
+		local a=a.PlayerGui.BRICKCOUNT.ImageLabel.TextLabel
+		a.Text=tostring(tonumber(a.Text)+1)
+	end)
+	wait(2)
+end,
+['Flash']=function()
+	ping()
+	d.FlashTeleport:FireServer()
+	wait(2.755)
+end,
+['Swapper']=function()
+	ping()
+	d.SLOC:FireServer()
+	wait(5.05)
+end,
+['Ghost']=function()
+	local c1=workspace:FindFirstChild'creepyambiance'
+	if c1 then
+		c1:Destroy()
+	end
+	local c1=workspace:FindFirstChild'guest666'
+	if c1 then
+		c1:Destroy()
+	end
+	local c1=game.Lighting:FindFirstChild'dimensioncolor'
+	if c1 then
+		c1:Destroy()
+	end
+	local c1=game.Lighting:FindFirstChild'Creepysky'
+	if c1 then
+		c1:Destroy()
+	end
+	r:Wait()
+end,
+['Thanos']=function(c)
+	ping()
+	if not A2 and c:FindFirstChild'Ragdolled'and(c.Ragdolled.Value)then
+		A2=true
+		task.spawn(function()
+			wait(5.355)
+			A2=false
+		end)
+		ping()
+		wait(1)
+		d.Illbeback:FireServer()
+	end
+	wait(.1)
+end,
+['Replica']=function()
+	ping()
+	d.Duplicate:FireServer(true)
+	task.wait(6)
+end,
+['[REDACTED]']=function()
+	ping()
+	d.Well:FireServer()
+	wait(5.155)
+end,
+['Trap']=function()
+	ping()
+	d.funnyhilariousbeartrap:FireServer()
+	wait(2.145)
+end,
+['Fort']=function()
+	ping()
+	d.Fortlol:FireServer()
+	wait(3.155)
+end,
+['Mail']=function()
+	ping()
+	d.MailSend:FireServer()
+	task.wait(6)
+end,
+['Cheeky']=function(c)
+	if not c:FindFirstChild'Sphere'then
+		d.Spherify:FireServer()
+	end
+	wait(3)
+end,
+['Glitch']=function()
+	ping()
+	d.GeneralAbility:FireServer()
+	wait(4)
+end,
+['ðŸ—¿']=function(c,h,p)
+	ping()
+	d.GeneralAbility:FireServer(CFrame.new(Vector3.new(p.Position.X+5, -5.722936153411865, p.Position.Z)))
+	wait(4)
+end,
+['fish']=function()
+	ping()
+	d.GeneralAbility:FireServer()
+	wait(3)
+end,
+['Slapple']=function(c,h,p)
+	ping()
+	d.funnyTree:FireServer(Vector3.new(p.Position.X+5, -5.172937870025635, p.Position.Z))
+	wait(3)
+end,
+['Defense']=function(c,h,p)
+	ping()
+	d.Barrier:FireServer()
+	wait(3)
+end}
+local p=game.Players.LocalPlayer.Character.PrimaryPart.Position
+local args = {
+    [1] = CFrame.new(Vector3.new(p.X+5, -5.722936153411865, p.Z), Vector3.new(-0.0192510224878788, 1.108841640728997e-08, -0.9998146891593933))
+}
+local old
+old = hookmetamethod(game,"__namecall",function(self,...)
+	if A and self == d.GhostHit then
+		d.Ghostinvisibilityactivated:FireServer()
+	end
+	return old(self,...)
+end)
+while AutoHability do
+	local c=a.Character
+	if c and g[l.Value]and(c.PrimaryPart)and(c:FindFirstChild'isInArena')and(c.isInArena.Value)then
+		g[l.Value](c,c:FindFirstChild'Humanoid',c.PrimaryPart)
+		A=true
+	else
+		A=false
+		task.wait()
+	end
+end
+A=false
+table.clear(g)
